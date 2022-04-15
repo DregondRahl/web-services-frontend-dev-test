@@ -1,0 +1,77 @@
+.card {
+  background-color: #FFFFFF;
+  color: #808080;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
+    rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+  overflow: hidden;
+  display: flex;
+  height: 160px;
+  margin: 30px 10px;
+  position: relative;
+}
+
+
+.card-good {
+  color: #3910fc
+}
+
+.card-bad {
+  color: #fa2300
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+
+.cardImage {
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  object-fit: cover;
+  width: 151px;
+}
+
+.cardTitle {
+  padding-left: 15px;
+  margin: 10px 0;
+}
+
+.cardData {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.cardData ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cardButton {
+  position: relative;
+  right: 0;
+}
+
+.cardButton button {
+  margin: 10px;
+  height: 30px;
+  width: 30px;
+  font-size: 1.2em;
+  border-radius: 50%;
+  border: 1px solid #808080;
+  background-color: #ffffff;
+  color:#808080;
+}
+
+.cardButton button:active {
+  background-color: #808080;
+  color:#FFFFFF;
+}
