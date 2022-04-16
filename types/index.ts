@@ -4,7 +4,8 @@ export type Hero = {
   slug: string;
   images: any;
   biography: HeroBiography;
-  appearance:HeroAppearance;
+  appearance: HeroAppearance;
+  powerstats: HeroPowerstats;
 };
 
 export type HeroBiography = {
@@ -15,4 +16,13 @@ export type HeroBiography = {
 
 export type HeroAppearance = {
   race: string;
+};
+
+export type HeroPowerstats = {
+  intelligence: number;
+  strength: number;
+  speed: number;
+  durability: number;
+  power: number;
+  combat: number;
 };

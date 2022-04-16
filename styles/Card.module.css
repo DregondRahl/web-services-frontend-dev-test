@@ -1,5 +1,5 @@
 .card {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #808080;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   border-radius: 8px;
@@ -7,18 +7,16 @@
     rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
   overflow: hidden;
   display: flex;
-  height: 160px;
   margin: 30px 10px;
   position: relative;
 }
 
-
 .card-good {
-  color: #3910fc
+  color: #3910fc;
 }
 
 .card-bad {
-  color: #fa2300
+  color: #fa2300;
 }
 
 .cardContent {
@@ -40,18 +38,22 @@
 
 .cardTitle {
   padding-left: 15px;
-  margin: 10px 0;
 }
 
 .cardData {
-  display: flex;
   align-items: center;
   padding-left: 15px;
 }
 
 .cardData ul {
   list-style: none;
-  padding: 0;
+  padding: 0 0 20px 0;
+  margin: 0;
+}
+
+.cardData h3 {
+  list-style: none;
+  padding: 0 0 20px 0;
   margin: 0;
 }
 
@@ -68,10 +70,10 @@
   border-radius: 50%;
   border: 1px solid #808080;
   background-color: #ffffff;
-  color:#808080;
+  color: #808080;
 }
 
 .cardButton button:active {
   background-color: #808080;
-  color:#FFFFFF;
+  color: #ffffff;
 }
