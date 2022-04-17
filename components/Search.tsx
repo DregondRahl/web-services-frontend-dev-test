@@ -32,7 +32,7 @@ const Search = ({ heros, setSearch }: Props) => {
         }
         // Filter tag only
         if (tagFilter !== "") {
-          return hero?.tags?.includes(tagFilter);
+          return hero.tags && hero.tags.includes(tagFilter);
         }
         // Filter term only
         return hero.name.toLowerCase().includes(heroFilter.toLowerCase());
