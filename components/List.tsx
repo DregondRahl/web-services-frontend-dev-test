@@ -17,7 +17,7 @@ const List = ({ heros, search, updateHeros }: Props) => {
   const records: Hero[] = search.term || search.tag ? search.result : heros;
 
   return (
-    <div className={styles.scroller}>
+    <div className={styles.scroller} role="list" aria-label="heros list">
       {records.map((hero) => (
         <ListItem hero={hero} key={hero.id} updateHeros={updateHeros} />
       ))}

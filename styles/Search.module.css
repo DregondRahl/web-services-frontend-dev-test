@@ -36,7 +36,8 @@
   color: #ffffff;
 }
 
-.chip:hover {
+.chip:hover,
+.chip:focus {
   background-color: #e2e2e2;
   color: #808080;
 }
@@ -45,3 +46,5 @@
   background-color: #007f0a;
   color: #ffffff;
 }
+
+

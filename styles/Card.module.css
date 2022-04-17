@@ -11,11 +11,11 @@
   position: relative;
 }
 
-.card-good {
+.goodAlignment {
   color: #3910fc;
 }
 
-.card-bad {
+.badAlignment {
   color: #fa2300;
 }
 
@@ -96,9 +96,10 @@
   color: #ffffff;
 }
 
-.cardAddTagButton button:active {
-  background-color: #e2e2e2;
-  color: #808080;
+.cardAddTagButton button:active,
+.cardAddTagButton button:focus {
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .cardTags {
@@ -123,6 +124,12 @@
 .chip:hover {
   background-color: #e2e2e2;
   color: #808080;
+}
+
+.chip:active,
+.chip:focus {
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .chipRemove {
