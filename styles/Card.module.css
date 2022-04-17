@@ -27,15 +27,6 @@
   text-transform: capitalize;
 }
 
-.cardImage {
-  display: block;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  object-fit: cover;
-  width: 151px;
-}
-
 .cardTitle {
   padding-left: 15px;
 }
@@ -139,4 +130,25 @@
   font-weight: bold;
   float: right;
   cursor: pointer;
+}
+
+.cardImageHolder {
+  display: inline-grid;
+}
+
+.cardImage {
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .card {
+    display: block;
+  }
+  .cardImageHolder {
+    width: 100%;
+  }
 }

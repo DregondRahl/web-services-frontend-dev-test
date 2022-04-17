@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Search from "./Search";
-import List from "./List";
-
 import useStorage from "../utils/useStorage";
 import { Hero } from "../types";
+
+import Search from "./Search";
+import List from "./List";
 
 const Heros = () => {
   // Local storage

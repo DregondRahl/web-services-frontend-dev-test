@@ -43,13 +43,15 @@ const ListItem = ({ hero, updateHeros }: Props) => {
 
   return (
     <div className={styles.card}>
-      <Image
-        src={hero.images.lg}
-        alt={hero.slug}
-        width={160}
-        height={240}
-        className={styles.cardImage}
-      />
+      <div className={styles.cardImageHolder}>
+        <Image
+          src={hero.images.lg}
+          alt={hero.slug}
+          width={200}
+          height={240}
+          className={styles.cardImage}
+        />
+      </div>
       <div className={`${styles.cardContent} ${styles["card-" + hero.biography.alignment]}`}>
         <h2 className={styles.cardTitle}>
           <Link href="/heros/[id]" as={`/heros/${hero.id}`}>
