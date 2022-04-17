@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "next-i18next";
+
 import { Hero } from "../types";
 import styles from "../styles/Search.module.css";
 
@@ -8,6 +10,9 @@ type Props = {
 };
 
 const Search = ({ heros, setSearch }: Props) => {
+  // Load Language
+  const { t } = useTranslation("common");
+
   // Tags
   const tagList = ["love", "hate"];
 
@@ -46,12 +51,12 @@ const Search = ({ heros, setSearch }: Props) => {
         <input
           type="search"
           name="search"
-          placeholder="Search by Name"
+          placeholder={t("search_by_name")}
           onChange={(e) => setHeroFilter(e.target.value)}
           tabIndex={0}
           role="searchbox"
           contentEditable="true"
-          aria-placeholder="Search by Name"
+          aria-placeholder={t("search_by_name")}
           aria-labelledby="search"
         />
       </div>
