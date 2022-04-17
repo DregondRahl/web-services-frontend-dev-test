@@ -42,7 +42,12 @@ const ListItem = ({ hero, updateHeros }: Props) => {
   };
 
   return (
-    <div className={styles.card}>
+    <div
+      className={styles.card}
+      role="listitem"
+      arira-label={hero.name}
+      arira-labelby={`${hero.name}'s profile`}
+    >
       <div className={styles.cardImageHolder}>
         <Image
           src={hero.images.lg}
@@ -50,24 +55,31 @@ const ListItem = ({ hero, updateHeros }: Props) => {
           width={200}
           height={240}
           className={styles.cardImage}
+          tabIndex={0}
+          role="img"
+          aria-label={`${hero.name ?? "Hero"} Image`}
         />
       </div>
-      <div className={`${styles.cardContent} ${styles["card-" + hero.biography.alignment]}`}>
+      <div className={`${styles.cardContent} ${styles[hero.biography.alignment + "Alignment"]}`}>
         <h2 className={styles.cardTitle}>
           <Link href="/heros/[id]" as={`/heros/${hero.id}`}>
             <a>{hero.name}</a>
           </Link>
         </h2>
         <div className={styles.cardData}>
-          <ul>
+          <ul role="list" aria-label={`${hero.name}'s Biography`} tabIndex={0}>
             <li>Fullname: {hero.biography.fullName ?? "N/A"}</li>
             <li>Race: {hero.appearance.race ?? "N/A"}</li>
             <li>Alignment: {hero.biography.alignment ?? "N/A"}</li>
             <li>Publisher: {hero.biography.publisher ?? "N/A"}</li>
           </ul>
-          <section {...getCollapseProps()}>
+          <section
+            {...getCollapseProps()}
+            aria-label={`${hero.name}'s expanded details`}
+            tabIndex={0}
+          >
             <h3>Powers: </h3>
-            <ul>
+            <ul role="list" aria-label={`${hero.name}'s Powers`} tabIndex={0}>
               <li>Intelligence: {hero.powerstats.intelligence ?? 0}%</li>
               <li>Strength: {hero.powerstats.strength ?? 0}%</li>
               <li>Speed: {hero.powerstats.speed ?? 0}%</li>
@@ -85,13 +97,39 @@ const ListItem = ({ hero, updateHeros }: Props) => {
                   value={tagInput}
                   onChange={(e) => setTagInput(e.target.value)}
                 />
-                <button onClick={() => setTag(tagInput)}>Add Tag</button>
+                <button
+                  onClick={() => setTag(tagInput)}
+                  onKeyDown={(e) => (e.key === "Enter" || e.key === " " ? setTag(tagInput) : false)}
+                >
+                  Add Tag
+                </button>
               </div>
-              <div className={styles.cardTags}>
+              <div
+                className={styles.cardTags}
+                role="list"
+                aria-label="Hero tags list"
+                aria-labelledby="Hero tags list"
+                tabIndex={0}
+              >
                 {hero.tags?.map((tag: string) => (
-                  <div className={styles.chip} key={`${hero.id}-${tag}`}>
+                  <div
+                    className={styles.chip}
+                    key={`${hero.id}-${tag}`}
+                    role="listitem"
+                    aria-label={tag}
+                    tabIndex={0}
+                  >
                     {tag}
-                    <span className={styles.chipRemove} onClick={(e) => removeTag(tag)}>
+                    <span
+                      className={styles.chipRemove}
+                      onClick={(e) => removeTag(tag)}
+                      onKeyDown={(e) =>
+                        e.key === "Enter" || e.key === " " ? removeTag(tag) : false
+                      }
+                      aria-label={`Remove tag ${tag}`}
+                      aria-labelledby={`Remove tag ${tag}`}
+                      tabIndex={0}
+                    >
                       &times;
                     </span>
                   </div>
@@ -102,7 +140,14 @@ const ListItem = ({ hero, updateHeros }: Props) => {
         </div>
       </div>
       <div className={styles.cardButton}>
-        <button {...getToggleProps()}>{isExpanded ? "-" : "+"}</button>
+        <button
+          {...getToggleProps()}
+          role="button"
+          arira-label={isExpanded ? "Collpase hero details" : "Expand hero details"}
+          arira-labelby="Expand or collpase profile details"
+        >
+          {isExpanded ? "-" : "+"}
+        </button>
       </div>
     </div>
   );

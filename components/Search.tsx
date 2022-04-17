@@ -11,10 +11,8 @@ const Search = ({ heros, setSearch }: Props) => {
   // Tags
   const tagList = ["love", "hate"];
 
-  // Filters Tags
+  // Filters
   const [tagFilter, setTagFilter] = useState("");
-
-  // Filters Heros
   const [heroFilter, setHeroFilter] = useState("");
 
   // Filters
@@ -44,12 +42,17 @@ const Search = ({ heros, setSearch }: Props) => {
 
   return (
     <>
-      <div className={styles.searchBar}>
+      <div className={styles.searchBar} role="search">
         <input
-          type="text"
+          type="search"
           name="search"
           placeholder="Search by Name"
           onChange={(e) => setHeroFilter(e.target.value)}
+          tabIndex={0}
+          role="searchbox"
+          contentEditable="true"
+          aria-placeholder="Search by Name"
+          aria-labelledby="search"
         />
       </div>
       <div className={styles.searchTags}>
@@ -58,6 +61,15 @@ const Search = ({ heros, setSearch }: Props) => {
             className={`${styles.chip} ${tagFilter === tag ? styles.chipSelected : ""}`}
             key={`'filter-${tag}`}
             onClick={() => setTagFilter(tagFilter === tag ? "" : tag)}
+            onKeyDown={(e) =>
+              e.key === "Enter" || e.key === " "
+                ? setTagFilter(tagFilter === tag ? "" : tag)
+                : false
+            }
+            tabIndex={0}
+            aria-label={`Filter heros by ${tag} tag `}
+            role="button"
+            aria-pressed={tagFilter === tag}
           >
             {tag}
           </div>
