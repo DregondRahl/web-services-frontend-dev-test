@@ -1,11 +1,10 @@
 import type { NextPage } from "next";
+import Head from "next/head";
+
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Head from "next/head";
-import useSWR from "swr";
 
-import List from "../components/List";
-import Search from "../components/Search";
+import Heros from "../components/Heros";
 import styles from "../styles/Heros.module.css";
 
 export async function getStaticProps({ locale }: any) {
@@ -20,14 +19,6 @@ const Home: NextPage = () => {
   // Load Language
   const { t } = useTranslation("common");
 
-  // Fetch Data
-  const { data, error } = useSWR(
-    "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json"
-  );
-
-  if (error) return <>An error has occurred.</>;
-  if (!data) return <>Loading...</>;
-
   return (
     <>
       <div className={styles.container}>
@@ -40,8 +31,7 @@ const Home: NextPage = () => {
         <main className={styles.main}>
           <div className={styles.grid}>
             <div className={styles.paper}>
-              <Search />
-              <List items={data} />
+              <Heros />
             </div>
           </div>
         </main>

@@ -11,3 +11,37 @@
 .searchBar {
   margin: 30px 20px 10px 20px;
 }
+
+.searchTags {
+  margin: 0 20px;
+}
+
+.chip {
+  display: inline-block;
+  height: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 32px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background-color: #000000;
+  color: #ffffff;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.chipSelected {
+  background-color: #007f0a;
+  color: #ffffff;
+}
+
+.chip:hover {
+  background-color: #e2e2e2;
+  color: #808080;
+}
+
+.chip:active {
+  background-color: #007f0a;
+  color: #ffffff;
+}

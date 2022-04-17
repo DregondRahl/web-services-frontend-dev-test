@@ -6,6 +6,7 @@ export type Hero = {
   biography: HeroBiography;
   appearance: HeroAppearance;
   powerstats: HeroPowerstats;
+  tags: string[];
 };
 
 export type HeroBiography = {
@@ -26,3 +27,9 @@ export type HeroPowerstats = {
   power: number;
   combat: number;
 };
+
+export type UserLocalStorage = [
+  record: any,
+  setRecord: (value: any) => boolean,
+  removeRecord: () => void
+];
