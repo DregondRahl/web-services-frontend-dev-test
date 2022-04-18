@@ -1,0 +1,20 @@
+.langSwitch {
+  display: block;
+  height: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 32px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background-color: #4CA09B;
+  color: #ffffff;
+  margin-bottom: 5px;
+  position: relative;
+  float: right;
+}
+
+.langSwitch:hover,
+.langSwitch:focus {
+  background-color: #4CB59B;
+}

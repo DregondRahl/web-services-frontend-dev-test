@@ -37,7 +37,7 @@ const Heros = () => {
   });
 
   if (isLoading) return <Loader />;
-  if (!heros) return <Error/> ;
+  if (!heros) return <Error />;
 
   // Update heros
   const updateHeros = (hero: Hero) => {

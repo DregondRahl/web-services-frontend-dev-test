@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 
+import Language from "./Language";
 import { Hero } from "../types";
 import styles from "../styles/Search.module.css";
 
@@ -79,6 +80,7 @@ const Search = ({ heros, setSearch }: Props) => {
             {tag}
           </div>
         ))}
+        <Language />
       </div>
     </>
   );
