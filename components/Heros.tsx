@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useStorage from "../utils/useStorage";
 import { Hero } from "../types";
 
+import Loader from "./Loader";
 import Search from "./Search";
 import List from "./List";
 
@@ -34,7 +35,7 @@ const Heros = () => {
     setLocalHeros([...(heros ?? [])]);
   });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loader />;
   if (!heros) return <p>No heros data</p>;
 
   // Update heros

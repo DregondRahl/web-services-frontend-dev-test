@@ -72,10 +72,18 @@ const ListItem = ({ hero, updateHeros }: Props) => {
         </h2>
         <div className={styles.cardData}>
           <ul role="list" aria-label={`${hero.name}'s Biography`} tabIndex={0}>
-            <li>{t('fullname')}: {hero.biography.fullName ?? "N/A"}</li>
-            <li>{t('race')}: {hero.appearance.race ?? "N/A"}</li>
-            <li>{t('alignment')}: {hero.biography.alignment ?? "N/A"}</li>
-            <li>{t('publisher')}: {hero.biography.publisher ?? "N/A"}</li>
+            <li>
+              {t("fullname")}: {hero.biography.fullName ?? "N/A"}
+            </li>
+            <li>
+              {t("race")}: {hero.appearance.race ?? "N/A"}
+            </li>
+            <li>
+              {t("alignment")}: {hero.biography.alignment ?? "N/A"}
+            </li>
+            <li>
+              {t("publisher")}: {hero.biography.publisher ?? "N/A"}
+            </li>
           </ul>
           <section
             {...getCollapseProps()}
@@ -84,12 +92,24 @@ const ListItem = ({ hero, updateHeros }: Props) => {
           >
             <h3>Powers: </h3>
             <ul role="list" aria-label={`${hero.name}'s Powers`} tabIndex={0}>
-              <li>{t('intelligence')}: {hero.powerstats.intelligence ?? 0}%</li>
-              <li>{t('strength')}: {hero.powerstats.strength ?? 0}%</li>
-              <li>{t('speed')}: {hero.powerstats.speed ?? 0}%</li>
-              <li>{t('durability')}: {hero.powerstats.durability ?? 0}%</li>
-              <li>{t('power')}: {hero.powerstats.power ?? 0}%</li>
-              <li>{t('combat')}: {hero.powerstats.combat ?? 0}%</li>
+              <li>
+                {t("intelligence")}: {hero.powerstats.intelligence ?? 0}%
+              </li>
+              <li>
+                {t("strength")}: {hero.powerstats.strength ?? 0}%
+              </li>
+              <li>
+                {t("speed")}: {hero.powerstats.speed ?? 0}%
+              </li>
+              <li>
+                {t("durability")}: {hero.powerstats.durability ?? 0}%
+              </li>
+              <li>
+                {t("power")}: {hero.powerstats.power ?? 0}%
+              </li>
+              <li>
+                {t("combat")}: {hero.powerstats.combat ?? 0}%
+              </li>
             </ul>
             <section>
               <h4>Tags</h4>
@@ -97,7 +117,7 @@ const ListItem = ({ hero, updateHeros }: Props) => {
                 <input
                   type="text"
                   name="tags"
-                  placeholder={t('add_tag')}
+                  placeholder={t("add_tag")}
                   value={tagInput}
                   onChange={(e) => setTagInput(e.target.value)}
                 />
@@ -105,7 +125,7 @@ const ListItem = ({ hero, updateHeros }: Props) => {
                   onClick={() => setTag(tagInput)}
                   onKeyDown={(e) => (e.key === "Enter" || e.key === " " ? setTag(tagInput) : false)}
                 >
-                  {t('add_tag')}
+                  {t("add_tag")}
                 </button>
               </div>
               <div
