@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
+
 import { Hero } from "../types";
 
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 
 import styles from "../styles/Game.module.css";
-import Image from "next/image";
+
 
 const Game: NextPage = () => {
   // Set states
@@ -69,9 +72,11 @@ const Game: NextPage = () => {
     <>
       <h1 className={styles.gameTitle}>Save the Saviors!</h1>
       <div className={styles.gameDetails}>
-        <p>The Riddler has stolen Zatanna&apos;s magic cards and imprisoned the heros and villians in them.
-        It&apos;s upto you to rescue the heros by flipping the right cards, pick a villian and he blows
-        up the deck with everyone trapped in it!</p>
+        <p>
+          The Riddler has stolen Zatanna&apos;s magic cards and imprisoned the heros and villians in
+          them. It&apos;s upto you to rescue the heros by flipping the right cards, pick a villian
+          and he blows up the deck with everyone trapped in it!
+        </p>
       </div>
       <div className={styles.gameGrid}>
         {cards.map((card: Hero) => (
@@ -101,6 +106,11 @@ const Game: NextPage = () => {
       </div>
       <div className={styles.gameSaved}>
         Heros Saved {rescueHeros.length}/{countHeros}
+      </div>
+      <div className={styles.gameEscape}>
+        <Link href="/" as="/">
+          <a>Escape!</a>
+        </Link>
       </div>
     </>
   );
