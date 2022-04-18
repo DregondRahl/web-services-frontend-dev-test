@@ -7,9 +7,16 @@
   margin: auto;
 }
 
-.gameTitle {
+.gameTitle,
+.gameDetails {
   width: 100%;
   text-align: center;
+}
+
+.gameDetails p {
+  width: 600px;
+  margin: auto;
+  padding: 10px;
 }
 
 .gameSaved {

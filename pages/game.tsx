@@ -68,6 +68,11 @@ const Game: NextPage = () => {
   return (
     <>
       <h1 className={styles.gameTitle}>Save the Saviors!</h1>
+      <div className={styles.gameDetails}>
+        <p>The Riddler has stolen Zatanna&apos;s magic cards and imprisoned the heros and villians in them.
+        It&apos;s upto you to rescue the heros by flipping the right cards, pick a villian and he blows
+        up the deck with everyone trapped in it!</p>
+      </div>
       <div className={styles.gameGrid}>
         {cards.map((card: Hero) => (
           <article
