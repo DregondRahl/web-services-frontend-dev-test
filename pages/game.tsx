@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import Head from "next/head";
 
 import { Hero } from "../types";
 
@@ -10,7 +11,6 @@ import Loader from "../components/Loader";
 import Error from "../components/Error";
 
 import styles from "../styles/Game.module.css";
-
 
 const Game: NextPage = () => {
   // Set states
@@ -70,48 +70,56 @@ const Game: NextPage = () => {
 
   return (
     <>
-      <h1 className={styles.gameTitle}>Save the Saviors!</h1>
-      <div className={styles.gameDetails}>
-        <p>
-          The Riddler has stolen Zatanna&apos;s magic cards and imprisoned the heros and villians in
-          them. It&apos;s upto you to rescue the heros by flipping the right cards, pick a villian
-          and he blows up the deck with everyone trapped in it!
-        </p>
-      </div>
-      <div className={styles.gameGrid}>
-        {cards.map((card: Hero) => (
-          <article
-            key={card.id}
-            onClick={() => rescue(card)}
-            className={flippedCards.includes(card.id) ? styles.gameCardFlip : ""}
-          >
-            <div className={styles.gameCard}>
-              <div className={styles.gameCardBack}>?</div>
-              <div
-                className={`${styles.gameCardFront} ${
-                  card.biography.alignment === "bad" ? styles.gameBad : styles.gameGood
-                }`}
-              >
-                <Image
-                  src={card.images.md}
-                  alt={card.slug}
-                  width={100}
-                  height={120}
-                  layout="responsive"
-                />
+      <Head>
+        <title>Heros- Game Mode</title>
+        <meta name="description" content="Heros game mode  application" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main className={styles.main} tabIndex={0} aria-label="Heros main console">
+        <h1 className={styles.gameTitle}>Save the Saviors!</h1>
+        <div className={styles.gameDetails}>
+          <p>
+            The Riddler has stolen Zatanna&apos;s magic cards and imprisoned the heros and villains
+            in them. It&apos;s upto you to rescue the heros by flipping the right cards, pick a
+            villain and he blows up the deck with everyone trapped in it!
+          </p>
+        </div>
+        <div className={styles.gameGrid}>
+          {cards.map((card: Hero) => (
+            <article
+              key={card.id}
+              onClick={() => rescue(card)}
+              className={flippedCards.includes(card.id) ? styles.gameCardFlip : ""}
+            >
+              <div className={styles.gameCard}>
+                <div className={styles.gameCardBack}>?</div>
+                <div
+                  className={`${styles.gameCardFront} ${
+                    card.biography.alignment === "bad" ? styles.gameBad : styles.gameGood
+                  }`}
+                >
+                  <Image
+                    src={card.images.md}
+                    alt={card.slug}
+                    width={100}
+                    height={120}
+                    layout="responsive"
+                  />
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
-      </div>
-      <div className={styles.gameSaved}>
-        Heros Saved {rescueHeros.length}/{countHeros}
-      </div>
-      <div className={styles.gameEscape}>
-        <Link href="/" as="/">
-          <a>Escape!</a>
-        </Link>
-      </div>
+            </article>
+          ))}
+        </div>
+        <div className={styles.gameSaved}>
+          Heros Saved {rescueHeros.length}/{countHeros}
+        </div>
+        <div className={styles.gameEscape}>
+          <Link href="/" as="/">
+            <a>Escape!</a>
+          </Link>
+        </div>
+      </main>
     </>
   );
 };
