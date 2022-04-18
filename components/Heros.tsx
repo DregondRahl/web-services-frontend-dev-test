@@ -4,6 +4,7 @@ import { Hero } from "../types";
 
 import Loader from "./Loader";
 import Search from "./Search";
+import Error from "./Error";
 import List from "./List";
 
 const Heros = () => {
@@ -36,7 +37,7 @@ const Heros = () => {
   });
 
   if (isLoading) return <Loader />;
-  if (!heros) return <p>No heros data</p>;
+  if (!heros) return <Error/> ;
 
   // Update heros
   const updateHeros = (hero: Hero) => {
