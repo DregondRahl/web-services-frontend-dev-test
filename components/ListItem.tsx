@@ -65,10 +65,8 @@ const ListItem = ({ hero, updateHeros }: Props) => {
         />
       </div>
       <div className={`${styles.cardContent} ${styles[hero.biography.alignment + "Alignment"]}`}>
-        <h2 className={styles.cardTitle}>
-          <Link href="/heros/[id]" as={`/heros/${hero.id}`}>
-            <a>{hero.name}</a>
-          </Link>
+        <h2 className={styles.cardTitle} aria-label={hero.name} tabIndex={0}>
+          {hero.name}
         </h2>
         <div className={styles.cardData}>
           <ul role="list" aria-label={`${hero.name}'s Biography`} tabIndex={0}>
