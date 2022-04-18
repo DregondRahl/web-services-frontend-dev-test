@@ -43,8 +43,10 @@ pnpm build
 - Nextjs Project with Typescript
 - i18n Multi-lingual support for English and French (French words may be inaccurate)
 - Auto language detection based on browser/ OS
+- a11y support for keyboard and screen reader
 - Search feature
 - Tags management
+- Local Storage persitance and sync
 - Filter by Tags and Text
 - Responsive UI for different screen sizes
 - Standardized CSS with Nextjs CSS modules
