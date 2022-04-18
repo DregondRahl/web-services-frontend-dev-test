@@ -5,6 +5,7 @@ import useCollapse from "react-collapsed";
 
 import { Hero } from "../types";
 import styles from "../styles/Card.module.css";
+import { useTranslation } from "next-i18next";
 
 type Props = {
   hero: Hero;
@@ -12,6 +13,9 @@ type Props = {
 };
 
 const ListItem = ({ hero, updateHeros }: Props) => {
+  // Load Language
+  const { t } = useTranslation("common");
+
   // Use collapase for power stats
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
@@ -61,17 +65,23 @@ const ListItem = ({ hero, updateHeros }: Props) => {
         />
       </div>
       <div className={`${styles.cardContent} ${styles[hero.biography.alignment + "Alignment"]}`}>
-        <h2 className={styles.cardTitle}>
-          <Link href="/heros/[id]" as={`/heros/${hero.id}`}>
-            <a>{hero.name}</a>
-          </Link>
+        <h2 className={styles.cardTitle} aria-label={hero.name} tabIndex={0}>
+          {hero.name}
         </h2>
         <div className={styles.cardData}>
           <ul role="list" aria-label={`${hero.name}'s Biography`} tabIndex={0}>
-            <li>Fullname: {hero.biography.fullName ?? "N/A"}</li>
-            <li>Race: {hero.appearance.race ?? "N/A"}</li>
-            <li>Alignment: {hero.biography.alignment ?? "N/A"}</li>
-            <li>Publisher: {hero.biography.publisher ?? "N/A"}</li>
+            <li>
+              {t("fullname")}: {hero.biography.fullName ?? "N/A"}
+            </li>
+            <li>
+              {t("race")}: {hero.appearance.race ?? "N/A"}
+            </li>
+            <li>
+              {t("alignment")}: {hero.biography.alignment ?? "N/A"}
+            </li>
+            <li>
+              {t("publisher")}: {hero.biography.publisher ?? "N/A"}
+            </li>
           </ul>
           <section
             {...getCollapseProps()}
@@ -80,12 +90,24 @@ const ListItem = ({ hero, updateHeros }: Props) => {
           >
             <h3>Powers: </h3>
             <ul role="list" aria-label={`${hero.name}'s Powers`} tabIndex={0}>
-              <li>Intelligence: {hero.powerstats.intelligence ?? 0}%</li>
-              <li>Strength: {hero.powerstats.strength ?? 0}%</li>
-              <li>Speed: {hero.powerstats.speed ?? 0}%</li>
-              <li>Surability: {hero.powerstats.durability ?? 0}%</li>
-              <li>Power: {hero.powerstats.power ?? 0}%</li>
-              <li>Combat: {hero.powerstats.combat ?? 0}%</li>
+              <li>
+                {t("intelligence")}: {hero.powerstats.intelligence ?? 0}%
+              </li>
+              <li>
+                {t("strength")}: {hero.powerstats.strength ?? 0}%
+              </li>
+              <li>
+                {t("speed")}: {hero.powerstats.speed ?? 0}%
+              </li>
+              <li>
+                {t("durability")}: {hero.powerstats.durability ?? 0}%
+              </li>
+              <li>
+                {t("power")}: {hero.powerstats.power ?? 0}%
+              </li>
+              <li>
+                {t("combat")}: {hero.powerstats.combat ?? 0}%
+              </li>
             </ul>
             <section>
               <h4>Tags</h4>
@@ -93,7 +115,7 @@ const ListItem = ({ hero, updateHeros }: Props) => {
                 <input
                   type="text"
                   name="tags"
-                  placeholder="Add tag"
+                  placeholder={t("add_tag")}
                   value={tagInput}
                   onChange={(e) => setTagInput(e.target.value)}
                 />
@@ -101,7 +123,7 @@ const ListItem = ({ hero, updateHeros }: Props) => {
                   onClick={() => setTag(tagInput)}
                   onKeyDown={(e) => (e.key === "Enter" || e.key === " " ? setTag(tagInput) : false)}
                 >
-                  Add Tag
+                  {t("add_tag")}
                 </button>
               </div>
               <div

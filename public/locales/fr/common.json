@@ -1,3 +1,18 @@
 {
-    "title": "Héros"
+    "title": "Héros",
+    "search_by_name": "Rechercher par nom",
+    "heros_list": "Liste des héros",
+    "no_results": "Aucun héros trouvé",
+    "fullname": "Nom Complet",
+    "race": "Racé",
+    "alignment": "Alignement",
+    "publisher": "Éditrice",
+    "intelligence": "Intelligence",
+    "strength": "Résistance",
+    "speed": "Vitesse",
+    "durability": "Durabilité",
+    "power": "Pouvoir",
+    "combat": "Bataille",
+    "tags": "Marque",
+    "add_tag": "Ajouter Marque"
 }

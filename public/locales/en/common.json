@@ -1,3 +1,18 @@
 {
-    "title": "Heros"
+    "title": "Heros",
+    "search_by_name": "Search by Name",
+    "heros_list": "Heros List",
+    "no_results": "No heros found",
+    "fullname": "Fullname",
+    "race": "Race",
+    "alignment": "Alignment",
+    "publisher": "Publisher",
+    "intelligence": "Intelligence",
+    "strength": "Strength",
+    "speed": "Speed",
+    "durability": "durability",
+    "power": "Power",
+    "combat": "Combat",
+    "tags": "Tags",
+    "add_tag": "Add Tag"
 }

@@ -6,6 +6,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import Heros from "../components/Heros";
 import styles from "../styles/Heros.module.css";
+import GameMode from "../components/GameMode";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
       <Head>
         <title>{t("title")}</title>
         <meta name="description" content="Heros console application" />
-        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -34,6 +35,7 @@ const Home: NextPage = () => {
             <Heros />
           </div>
         </div>
+        <GameMode />
       </main>
     </>
   );

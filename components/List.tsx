@@ -1,4 +1,5 @@
 import ListItem from "./ListItem";
+import Error from "./Error"
 import { Hero } from "../types";
 import styles from "../styles/Heros.module.css";
 
@@ -17,11 +18,11 @@ const List = ({ heros, search, updateHeros }: Props) => {
   const records: Hero[] = search.term || search.tag ? search.result : heros;
 
   return (
-    <div className={styles.scroller} role="list" aria-label="heros list">
+    <div className={styles.scroller} role="list" aria-label="Heros list">
       {records.map((hero) => (
         <ListItem hero={hero} key={hero.id} updateHeros={updateHeros} />
       ))}
-      {(search.term || search.tag) && search.result.length < 1 ? "No results" : ""}
+      {(search.term || search.tag) && search.result.length < 1 ? <Error /> : ""}
     </div>
   );
 };
