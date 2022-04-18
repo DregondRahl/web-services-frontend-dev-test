@@ -8,7 +8,8 @@
 }
 
 .gameTitle,
-.gameDetails {
+.gameDetails,
+.gameEscape {
   width: 100%;
   text-align: center;
 }
@@ -17,6 +18,15 @@
   width: 600px;
   margin: auto;
   padding: 10px;
+}
+
+.gameEscape {
+  margin-top: 15px;
+  font-size: 1em;
+}
+
+.gameEscape a:hover {
+  color: #ff0000;
 }
 
 .gameSaved {
